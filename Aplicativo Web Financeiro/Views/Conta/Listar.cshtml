@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Domain.Models.Conta>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Criar">Adicionar novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoConta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grupo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoConta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grupo.GrupoID)
+            </td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.ContaID">Editar</a> |
+                <a asp-action="Remover" asp-route-id="@item.ContaID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,4 +1,4 @@
-﻿@model Domain.Models.Empresa
+﻿@model Domain.Models.Grupo
 
 @{
     ViewData["Title"] = "Criar";
@@ -6,14 +6,22 @@
 
 <h1>Criar</h1>
 
-<h4>Empresa</h4>
+<h4>Grupo</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Criar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CriadoEm" />
+            <input type="hidden" asp-for="AtualizadoEm" />
+            <input type="hidden" asp-for="Usuario" />
+            <input type="hidden" asp-for="Status" />
             <div class="form-group">
-                <input type="hidden" asp-for="EmpresaID" />
+                <label asp-for="CodigoGrupo" class="control-label"></label>
+                <input asp-for="CodigoGrupo" class="form-control" />
+                <span asp-validation-for="CodigoGrupo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Descricao" class="control-label"></label>
                 <input asp-for="Descricao" class="form-control" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>

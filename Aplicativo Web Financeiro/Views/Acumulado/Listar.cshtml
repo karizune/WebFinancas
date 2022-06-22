@@ -31,9 +31,8 @@
                 @Html.DisplayFor(modelItem => item.MesAno)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-empresaID="@item.EmpresaID" asp-route-acumuladoID="@item.AcumuladoID">Edit</a> |
-                <a asp-action="Details" asp-route-empresaID="@item.EmpresaID" asp-route-acumuladoID="@item.AcumuladoID">Details</a> |
-                <a asp-action="Delete" asp-route-empresaID="@item.EmpresaID" asp-route-acumuladoID="@item.AcumuladoID">Delete</a>
+                <a asp-action="Editar" asp-route-empresaID="@item.EmpresaID" asp-route-acumuladoID="@item.AcumuladoID">Editar</a> |
+                <a asp-action="Remover" asp-route-empresaID="@item.EmpresaID" asp-route-acumuladoID="@item.AcumuladoID">Remover</a>
             </td>
         </tr>
 }

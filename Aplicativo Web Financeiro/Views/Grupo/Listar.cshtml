@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Domain.Models.Grupo>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Criar">Criar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoGrupo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CriadoEm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AtualizadoEm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoGrupo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CriadoEm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AtualizadoEm)
+            </td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.GrupoID">Editar</a> |
+                <a asp-action="Remover" asp-route-id="@item.GrupoID">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

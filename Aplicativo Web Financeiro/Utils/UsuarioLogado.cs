@@ -8,9 +8,10 @@ namespace Aplicativo_Web_Financeiro.Utils
 {
     public sealed class UsuarioLogado
     {
-        public static UsuarioLogado _instance;
+        private static UsuarioLogado _instance;
 
         public string NomeUsuario { get; set; }
+        public int EmpresaID { get; set; }
         public bool Logado { get; set; }
 
         private UsuarioLogado()
@@ -32,6 +33,7 @@ namespace Aplicativo_Web_Financeiro.Utils
         {
             _instance.NomeUsuario = usuario.NomeUsuario;
             _instance.Logado = true;
+            _instance.EmpresaID = usuario.EmpresaID;
         }
 
         public static void Reset()

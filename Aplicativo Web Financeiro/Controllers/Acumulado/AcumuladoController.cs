@@ -2,10 +2,6 @@
 using Domain.Interfaces.Service;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Aplicativo_Web_Financeiro.Controllers
 {
@@ -39,10 +35,22 @@ namespace Aplicativo_Web_Financeiro.Controllers
             return RedirectToAction("Listar");
         }
 
+        public IActionResult Criar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Criar(Acumulado acumulado)
+        {
+            acumulado.EmpresaID = UsuarioLogado.EmpresaID;
+            _acumuladoService.Adicionar(acumulado, UsuarioLogado.NomeUsuario);
+            return RedirectToAction("Listar");
+        }
+
         public IActionResult Remover(int empresaID, int acumuladoID)
         {
             _acumuladoService.Remover(empresaID, acumuladoID, UsuarioLogado.NomeUsuario);
-
             return RedirectToAction("Listar");
         }
     }

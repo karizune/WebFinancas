@@ -36,6 +36,7 @@ namespace Infra.EntityFramework.Repository
                     _ent.NomeUsuario = ent.NomeUsuario;
                     _ent.Senha = ent.Senha;
                     _ent._usuario = usuario;
+                    _ent.EmpresaID = ent.EmpresaID;
 
                     Update(_ent);
                 }

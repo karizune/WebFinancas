@@ -8,6 +8,6 @@ namespace Domain.Interfaces.Service
         Empresa GetOneByID(int empresaID);
         List<Empresa> GetAtivos();
         bool Remover(int empresaID, string usuario);
-        bool Salvar(Empresa empresa, string usuario);
+        bool Adicionar(Empresa empresa, string usuario);
     }
 }

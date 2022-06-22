@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aplicativo_Web_Financeiro.Utils;
+using Domain.Interfaces.Service;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,19 @@ namespace Aplicativo_Web_Financeiro.Controllers
 {
     public class LancamentoContabilController : Controller
     {
-        public IActionResult Index()
+        public UsuarioLogado UsuarioLogado = UsuarioLogado.GetInstance();
+
+        private readonly ILancamentoContabilService _lancamentoContabilService;
+
+        public LancamentoContabilController(ILancamentoContabilService lancamentoContabilService)
         {
-            return View();
+            _lancamentoContabilService = lancamentoContabilService;
+        }
+
+        public IActionResult Listar(int empresaID)
+        {
+            var lst = _lancamentoContabilService.GetAtivos(empresaID);
+            return View(lst);
         }
     }
 }

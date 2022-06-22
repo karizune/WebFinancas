@@ -19,6 +19,9 @@ namespace Domain.Models
         [DisplayName("Nome do usuário")]
         public string NomeUsuario { get; set; }
 
+        [DisplayName("Empresa")]
+        public int EmpresaID { get; set; }
+
         public string _usuario { get; set; }
 
         [DisplayName("Ativo?")]

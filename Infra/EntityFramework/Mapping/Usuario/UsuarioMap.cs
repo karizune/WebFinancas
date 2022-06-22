@@ -14,6 +14,7 @@ namespace Infra.EntityFramework.Mapping
             builder.Property(t => t.UsuarioAcesso).HasColumnName("UsuarioAcesso").HasColumnType("varchar(50)");
             builder.Property(t => t.Senha).HasColumnName("Senha").HasColumnType("varchar(50)");
             builder.Property(t => t.NomeUsuario).HasColumnName("NomeUsuario").HasColumnType("varchar(50)");
+            builder.Property(t => t.EmpresaID).HasColumnName("EmpresaID").HasColumnType("int");
             builder.Property(t => t._usuario).HasColumnName("Usuario").HasColumnType("varchar(50)");
             builder.Property(t => t.Status).HasColumnName("Status").HasColumnType("bit");
             builder.Property(t => t.CriadoEm).HasColumnName("CriadoEm").HasColumnType("datetime");

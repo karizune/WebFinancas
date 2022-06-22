@@ -37,6 +37,19 @@ namespace Aplicativo_Web_Financeiro.Controllers
             return RedirectToAction("Listar");
         }
 
+        public IActionResult Editar(int grupoID)
+        {
+            var ent = _grupoService.GetOneByID(grupoID);
+            return View(ent);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Grupo grupo)
+        {
+            _grupoService.Adicionar(grupo, UsuarioLogado.NomeUsuario);
+            return RedirectToAction("Listar");
+        }
+
         public IActionResult Remover(int grupoID)
         {
             _grupoService.Remover(grupoID, UsuarioLogado.NomeUsuario);

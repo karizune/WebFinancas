@@ -1,4 +1,4 @@
-﻿@model Domain.Models.Empresa
+﻿@model Domain.Models.Acumulado
 
 @{
     ViewData["Title"] = "Criar";
@@ -6,17 +6,21 @@
 
 <h1>Criar</h1>
 
-<h4>Empresa</h4>
+<h4>Acumulado</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Criar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <input type="hidden" asp-for="EmpresaID" />
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
+                <label asp-for="CodigoContabil" class="control-label"></label>
+                <input asp-for="CodigoContabil" class="form-control" />
+                <span asp-validation-for="CodigoContabil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MesAno" class="control-label"></label>
+                <input asp-for="MesAno" class="form-control" />
+                <span asp-validation-for="MesAno" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Criar" class="btn btn-primary" />

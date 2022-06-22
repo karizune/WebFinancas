@@ -1,4 +1,10 @@
-﻿<style>
+﻿@using Aplicativo_Web_Financeiro.Utils
+
+@{ 
+    var usuarioLogado = UsuarioLogado.GetInstance();
+}
+
+<style>
     .flex-gap {
         display: inline-flex;
         flex-wrap: wrap;
@@ -10,16 +16,25 @@
     <div class="flex-gap">
         <div style="min-width:200px">
             <div class="card">
-                <div class="card-header">Acumulado</div>
+                <div class="card-header">Acumulados</div>
                 <div class="card-body">
-                    @Html.ActionLink("Listar", "Listar", "Acumulado", new { EmpresaID = 1 })
+                    @Html.ActionLink("Listar", "Listar", "Acumulado", new { EmpresaID = usuarioLogado.EmpresaID })
+                </div>
+            </div>
+        </div>
+
+        <div style="min-width:200px">
+            <div class="card">
+                <div class="card-header">Contas</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "Conta", new { GrupoID = 3})
                 </div>
             </div>
         </div>
 
         <div style="min-width:200px">
             <div class="card  ">
-                <div class="card-header">Empresa</div>
+                <div class="card-header">Empresas</div>
                 <div class="card-body">
                     @Html.ActionLink("Listar", "Listar", "Empresa")
                 </div>
@@ -28,7 +43,25 @@
 
         <div style="min-width:200px">
             <div class="card  ">
-                <div class="card-header">Lancamento Tipo</div>
+                <div class="card-header">Grupos</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "Grupo")
+                </div>
+            </div>
+        </div>
+
+        <div style="min-width:200px">
+            <div class="card  ">
+                <div class="card-header">Lancamentos Contábeis</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "LancamentoContabil", new { EmpresaID = usuarioLogado.EmpresaID })
+                </div>
+            </div>
+        </div>
+
+        <div style="min-width:200px">
+            <div class="card  ">
+                <div class="card-header">Lancamentos Tipos</div>
                 <div class="card-body">
                     @Html.ActionLink("Listar", "Listar", "LancamentoTipo")
                 </div>
@@ -37,27 +70,18 @@
 
         <div style="min-width:200px">
             <div class="card  ">
-                <div class="card-header">Usuario</div>
+                <div class="card-header">Planos de Contas</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "PlanoConta", new { EmpresaID = usuarioLogado.EmpresaID })
+                </div>
+            </div>
+        </div>
+
+        <div style="min-width:200px">
+            <div class="card  ">
+                <div class="card-header">Usuarios</div>
                 <div class="card-body">
                     @Html.ActionLink("Listar", "Listar", "Usuario")
-                </div>
-            </div>
-        </div>
-
-        <div style="min-width:200px">
-            <div class="card  ">
-                <div class="card-header">Plano Conta</div>
-                <div class="card-body">
-                    @Html.ActionLink("Listar", "Listar", "PlanoConta")
-                </div>
-            </div>
-        </div>
-
-        <div style="min-width:200px">
-            <div class="card  ">
-                <div class="card-header">Grupo</div>
-                <div class="card-body">
-                    @Html.ActionLink("Listar", "Listar", "Grupo")
                 </div>
             </div>
         </div>
