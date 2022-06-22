@@ -19,7 +19,7 @@ namespace Infra.EntityFramework.Repository
             return GetOneBy(f => f.AcumuladoID == acumuladoID && f.EmpresaID == empresaID && f.Status);
         }
 
-        public bool Adicionar(Acumulado acumulado)
+        public bool Adicionar(Acumulado acumulado, string usuario)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace Infra.EntityFramework.Repository
                     ent.AtualizadoEm = DateTime.Now;
                     ent.CodigoContabil = acumulado.CodigoContabil;
                     ent.MesAno = acumulado.MesAno;
-                    ent.Usuario = acumulado.Usuario;
+                    ent.Usuario = usuario;
 
                     Update(ent);
                 }
@@ -39,6 +39,7 @@ namespace Infra.EntityFramework.Repository
                     acumulado.CriadoEm = DateTime.Now;
                     acumulado.AtualizadoEm = DateTime.Now;
                     acumulado.Status = true;
+                    acumulado.Usuario = usuario;
 
                     Add(acumulado);
                 }

@@ -21,7 +21,7 @@ namespace Services.Services
             return _repository.GetAtivos();
         }
 
-        public Usuario GetOneBy(int usuarioID)
+        public Usuario GetOneByID(int usuarioID)
         {
             return _repository.GetOneByID(usuarioID);
         }
@@ -31,14 +31,29 @@ namespace Services.Services
             return _repository.GetOneByUsuarioAcesso(usuarioAcesso);
         }
 
-        public bool Remover(int usuarioID)
+        public bool Remover(int usuarioID, string usuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var ent = GetOneByID(usuarioID);
+                if(ent != null)
+                {
+                    return _repository.Remover(ent, usuario);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public bool Salvar(Usuario usuario)
+        public bool Adicionar(Usuario ent, string usuario)
         {
-            throw new NotImplementedException();
+            return _repository.Adicionar(ent, usuario);
         }
     }
 }

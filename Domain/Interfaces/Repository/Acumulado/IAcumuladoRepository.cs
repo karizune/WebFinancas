@@ -8,6 +8,6 @@ namespace Domain.Interfaces.Repository
         Acumulado GetOneByEmpresaAcumulado(int empresaID, int acumuladoID);
         List<Acumulado> GetAtivos(int empresaID);
         bool Remover(Acumulado acumulado, string usuario);
-        bool Adicionar(Acumulado acumulado);
+        bool Adicionar(Acumulado acumulado, string usuario);
     }
 }

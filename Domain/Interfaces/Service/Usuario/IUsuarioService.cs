@@ -5,10 +5,10 @@ namespace Domain.Interfaces.Service
 {
     public interface IUsuarioService
     {
-        Usuario GetOneBy(int usuarioID);
+        Usuario GetOneByID(int usuarioID);
         Usuario GetOneByUsuarioAcesso(string usuarioAcesso);
         List<Usuario> GetAtivos();
-        bool Salvar(Usuario usuario);
-        bool Remover(int usuarioID);
+        bool Remover(int usuarioID, string usuario);
+        bool Adicionar(Usuario ent, string usuario);
     }
 }

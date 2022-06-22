@@ -12,6 +12,7 @@ namespace Domain.Interfaces.Repository
         Usuario GetOneByID(int id);
         Usuario GetOneByUsuarioAcesso(string usuarioAcesso);
         List<Usuario> GetAtivos();
-        bool Remover(Usuario usuario);
+        bool Remover(Usuario ent, string usuario);
+        bool Adicionar(Usuario ent, string usuario);
     }
 }

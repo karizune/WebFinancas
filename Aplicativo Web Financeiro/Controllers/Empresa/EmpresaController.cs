@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain.Interfaces.Service;
+using Domain.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,30 +10,28 @@ namespace Aplicativo_Web_Financeiro.Controllers
 {
     public class EmpresaController : Controller
     {
-        public IActionResult List()
+        private readonly IEmpresaService _empresaService;
+
+        public EmpresaController(IEmpresaService empresaService)
+        {
+            _empresaService = empresaService;
+        }
+
+        public IActionResult Listar()
+        {
+            var lst = _empresaService.GetAtivos();
+            return View(lst);
+        }
+
+        public IActionResult Criar()
         {
             return View();
         }
 
-        public IActionResult Edit()
-        {
-            return View();
-        }
+        //[HttpPost]
+        //public IActionResult Criar(Empresa empresa)
+        //{
 
-
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        public IActionResult CreateConfirm()
-        {
-            return View();
-        }
-
-        public IActionResult Delete(int empresaId)
-        {
-            return View();
-        }
+        //}
     }
 }

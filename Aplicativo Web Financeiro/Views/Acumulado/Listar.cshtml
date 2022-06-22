@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Domain.Models.Acumulado>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Criar">Novo acumulado</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoContabil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MesAno)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoContabil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MesAno)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-empresaID="@item.EmpresaID" asp-route-acumuladoID="@item.AcumuladoID">Edit</a> |
+                <a asp-action="Details" asp-route-empresaID="@item.EmpresaID" asp-route-acumuladoID="@item.AcumuladoID">Details</a> |
+                <a asp-action="Delete" asp-route-empresaID="@item.EmpresaID" asp-route-acumuladoID="@item.AcumuladoID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

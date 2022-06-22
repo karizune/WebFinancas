@@ -8,6 +8,6 @@ namespace Domain.Interfaces.Service
         LancamentoTipo GetOneByID(int lancamentoTipoID);
         List<LancamentoTipo> GetAtivos();
         bool Remover(int lancamentoTipoID, string usuario);
-        bool Adicionado(LancamentoTipo lancamentoTipo, string usuario);
+        bool Adicionar(LancamentoTipo lancamentoTipo, string usuario);
     }
 }

@@ -7,7 +7,7 @@ namespace Domain.Interfaces.Service
     {
         Conta GetOneByGrupoConta(int grupoID, int contaID);
         List<Conta> GetAtivos(int grupoID);
-        bool Salvar(Conta conta, string usuario);
+        bool Adicionar(Conta conta, string usuario);
         bool Remover(int grupoID, int contaID, string usuario);
     }
 }

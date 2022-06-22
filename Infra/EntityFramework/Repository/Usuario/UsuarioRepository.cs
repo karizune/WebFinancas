@@ -23,35 +23,64 @@ namespace Infra.EntityFramework.Repository
             return GetOneBy(f => f.UsuarioAcesso == usuarioAcesso);
         }
 
-        public bool Remover(Usuario usuario)
+        public bool Adicionar(Usuario ent, string usuario)
         {
             try
             {
-                var ent = GetOneByID(usuario.UsuarioID);
+                var _ent = GetOneByID(ent.UsuarioID);
                 
-                if(ent != null)
+                if(_ent != null)
                 {
-                    ent.AtualizadoEm = DateTime.Now;
-                    ent.UsuarioAcesso = usuario.UsuarioAcesso;
-                    ent.NomeUsuario = usuario.NomeUsuario;
-                    ent.Senha = usuario.Senha;
-                    ent._usuario = usuario._usuario;
+                    _ent.AtualizadoEm = DateTime.Now;
+                    _ent.UsuarioAcesso = ent.UsuarioAcesso;
+                    _ent.NomeUsuario = ent.NomeUsuario;
+                    _ent.Senha = ent.Senha;
+                    _ent._usuario = usuario;
 
-                    Update(ent);
+                    Update(_ent);
                 }
                 else
                 {
-                    usuario.AtualizadoEm = DateTime.Now;
-                    usuario.CriadoEm = DateTime.Now;
+                    ent.AtualizadoEm = DateTime.Now;
+                    ent.CriadoEm = DateTime.Now;
+                    ent.Status = true;
+                    ent._usuario = usuario;
 
-                    Add(usuario);
+                    Add(ent);
                 }
 
                 return true;
             }
-            catch
+            catch(Exception e)
             {
                 return false;
+            }
+        }
+
+        public bool Remover(Usuario ent, string usuario)
+        {
+            try
+            {
+                var _ent = GetOneByID(ent.UsuarioID);
+
+                if(_ent != null)
+                {
+                    _ent.AtualizadoEm = DateTime.Now;
+                    _ent.Status = false;
+                    _ent._usuario = usuario;
+
+                    Update(_ent);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch
+            {
+                return true;
             }
         }
     }

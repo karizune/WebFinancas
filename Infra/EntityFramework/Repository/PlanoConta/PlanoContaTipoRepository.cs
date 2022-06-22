@@ -18,7 +18,7 @@ namespace Infra.EntityFramework.Repository
             return GetOneBy(f => f.PlanoContaTipoID == planoContaTipoID);
         }
 
-        public bool Remover(PlanoContaTipo planoContaTipo)
+        public bool Remover(PlanoContaTipo planoContaTipo, string usuario)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace Infra.EntityFramework.Repository
                 {
                     ent.AtualizadoEm = DateTime.Now;
                     ent.Status = false;
-                    ent.Usuario = planoContaTipo.Usuario;
+                    ent.Usuario = usuario;
 
                     Update(ent);
 
@@ -38,6 +38,37 @@ namespace Infra.EntityFramework.Repository
                 {
                     return false;
                 }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool Adicionar(PlanoContaTipo planoContaTipo, string usuario)
+        {
+            try
+            {
+                var ent = GetOneByID(planoContaTipo.PlanoContaTipoID);
+                if(ent != null)
+                {
+                    ent.AtualizadoEm = DateTime.Now;
+                    ent.Usuario = usuario;
+                    ent.Descricao = planoContaTipo.Descricao;
+                    ent.Codigo = planoContaTipo.Codigo;
+
+                    Update(ent);
+                }
+                else
+                {
+                    planoContaTipo.CriadoEm = DateTime.Now;
+                    planoContaTipo.AtualizadoEm = DateTime.Now;
+                    planoContaTipo.Status = true;
+                    planoContaTipo.Usuario = usuario;
+
+                    Add(planoContaTipo);
+                }
+                return true;
             }
             catch
             {

@@ -1,0 +1,65 @@
+﻿<style>
+    .flex-gap {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+</style>
+
+<center style="margin-top: auto">
+    <div class="flex-gap">
+        <div style="min-width:200px">
+            <div class="card">
+                <div class="card-header">Acumulado</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "Acumulado", new { EmpresaID = 1 })
+                </div>
+            </div>
+        </div>
+
+        <div style="min-width:200px">
+            <div class="card  ">
+                <div class="card-header">Empresa</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "Empresa")
+                </div>
+            </div>
+        </div>
+
+        <div style="min-width:200px">
+            <div class="card  ">
+                <div class="card-header">Lancamento Tipo</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "LancamentoTipo")
+                </div>
+            </div>
+        </div>
+
+        <div style="min-width:200px">
+            <div class="card  ">
+                <div class="card-header">Usuario</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "Usuario")
+                </div>
+            </div>
+        </div>
+
+        <div style="min-width:200px">
+            <div class="card  ">
+                <div class="card-header">Plano Conta</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "PlanoConta")
+                </div>
+            </div>
+        </div>
+
+        <div style="min-width:200px">
+            <div class="card  ">
+                <div class="card-header">Grupo</div>
+                <div class="card-body">
+                    @Html.ActionLink("Listar", "Listar", "Grupo")
+                </div>
+            </div>
+        </div>
+    </div>
+</center>

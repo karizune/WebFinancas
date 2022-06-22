@@ -20,7 +20,7 @@ namespace Infra.EntityFramework.Repository
             return GetOneBy(f => f.GrupoID == id);
         }
 
-        public bool Remover(Grupo grupo)
+        public bool Remover(Grupo grupo, string usuario)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace Infra.EntityFramework.Repository
                 {
                     ent.AtualizadoEm = DateTime.Now;
                     ent.Status = false;
-                    ent.Usuario = grupo.Usuario;
+                    ent.Usuario = usuario;
 
                     Update(ent);
                     return true;

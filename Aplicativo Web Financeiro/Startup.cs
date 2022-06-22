@@ -33,9 +33,7 @@ namespace Aplicativo_Web_Financeiro
             services.AddMvc();
 
             // services
-            services.AddTransient<IUsuarioService, UsuarioService>();
             services.AddTransient<IAcumuladoService, AcumuladoService>();
-
             services.AddTransient<IEmpresaService, EmpresaService>();
             services.AddTransient<IGrupoService, GrupoService>();
             services.AddTransient<ILancamentoContabilService, LancamentoContabilService>();
@@ -43,9 +41,17 @@ namespace Aplicativo_Web_Financeiro
             services.AddTransient<ILancamentoTipoService, LancamentoTipoService>();
             services.AddTransient<IPlanoContaService, PlanoContaService>();
             services.AddTransient<IPlanoContaTipoService, PlanoContaTipoService>();
-
+            services.AddTransient<IUsuarioService, UsuarioService>();
 
             //repositories
+            services.AddTransient<IAcumuladoRepository, AcumuladoRepository>();
+            services.AddTransient<IEmpresaRepository, EmpresaRepository>();
+            services.AddTransient<IGrupoRepository, GrupoRepository>();
+            services.AddTransient<ILancamentoContabilRepository, LancamentoContabilRepository>();
+            services.AddTransient<ILancamentoContabilItemRepository, LancamentoContabilItemRepository>();
+            services.AddTransient<ILancamentoTipoRepository, LancamentoTipoRepository>();
+            services.AddTransient<IPlanoContaRepository, PlanoContaRepository>();
+            services.AddTransient<IPlanoContaTipoRepository, PlanoContaTipoRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
         }
 

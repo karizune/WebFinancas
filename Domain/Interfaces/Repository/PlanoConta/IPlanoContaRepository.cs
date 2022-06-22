@@ -11,6 +11,7 @@ namespace Domain.Interfaces.Repository
     {
         PlanoConta GetOneByEmpresaPlanoConta(int empresaID, int planoContaID);
         List<PlanoConta> GetAtivos(int empresaID);
-        bool Remover(PlanoConta planoConta);
+        bool Remover(PlanoConta planoConta, string usuario);
+        bool Adicionar(PlanoConta planoConta, string usuario);
     }
 }

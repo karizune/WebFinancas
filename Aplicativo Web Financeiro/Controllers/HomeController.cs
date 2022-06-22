@@ -7,12 +7,13 @@ using Domain.Models;
 using Aplicativo_Web_Financeiro.ViewModels;
 using Domain.Interfaces.Repository;
 using Domain.Interfaces.Service;
+using Aplicativo_Web_Financeiro.Utils;
 
 namespace Aplicativo_Web_Financeiro.Controllers
 {
     public class HomeController : Controller
     {
-        public static Usuario Usuario = new Usuario();
+        private UsuarioLogado UsuarioLogado = UsuarioLogado.GetInstance();
 
         private IUsuarioService _usuarioService;
 
@@ -24,26 +25,19 @@ namespace Aplicativo_Web_Financeiro.Controllers
             _usuarioService = usuarioService;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public IActionResult Login()
         {
-            var teste = _usuarioService.GetOneByUsuarioAcesso("luan");
-
+            UsuarioLogado.Reset();
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(Usuario usuario)
+        public IActionResult Login(UsuarioViewModel usuario)
         {
             var user = _usuarioService.GetOneByUsuarioAcesso(usuario.UsuarioAcesso);
 
             if (user == null)
             {
-                ModelState.AddModelError("UsuarioAcesso", "Usuário inexistente");
                 return View(usuario);
             }
 
@@ -52,11 +46,12 @@ namespace Aplicativo_Web_Financeiro.Controllers
 
             if (user == null)
             {
-                ModelState.AddModelError("Senha", "Senha incorreta");
                 return View(usuario);
             }
 
-            return RedirectToAction("Visualizar", "Pokemon", new { id = usuario.UsuarioID });
+            UsuarioLogado.Init(user);
+
+            return RedirectToAction("Inicio");
         }
 
         public IActionResult Cadastro()
@@ -64,24 +59,28 @@ namespace Aplicativo_Web_Financeiro.Controllers
             return View();
         }
 
-
         [HttpPost]
-        public IActionResult Cadastro(Usuario objeto)
+        public IActionResult CadastroConfirm(Usuario objeto)
         {
-
-            if (objeto.NomeUsuario == null || objeto.Senha == null || objeto.Senha == null)
+            if (objeto.NomeUsuario == null || objeto.UsuarioAcesso == null || objeto.Senha == null)
             {
                 return View(objeto);
             }
+            _usuarioService.Adicionar(objeto, UsuarioLogado.NomeUsuario);
 
-            //db.Usuario.Add(objeto);
-            //db.SaveChanges();
             return RedirectToAction("Login");
         }
 
-        public IActionResult Privacy()
+        public IActionResult Inicio()
         {
-            return View();
+            if(UsuarioLogado != null && UsuarioLogado.Logado)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
     }
 }

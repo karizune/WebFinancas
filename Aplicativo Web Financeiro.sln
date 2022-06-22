@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aplicativo Web Financeiro", "Aplicativo Web Financeiro\Aplicativo Web Financeiro.csproj", "{F44CE05B-C595-47D5-A615-01F309FB9935}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{C62BA5F0-B631-4F3F-BABA-1D59BFC34845}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{C62BA5F0-B631-4F3F-BABA-1D59BFC34845}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{92C044B8-EF07-491F-AFE9-627E4469DFEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{92C044B8-EF07-491F-AFE9-627E4469DFEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{6822F286-71E4-42D2-A152-6DBD8CB50FC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{6822F286-71E4-42D2-A152-6DBD8CB50FC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

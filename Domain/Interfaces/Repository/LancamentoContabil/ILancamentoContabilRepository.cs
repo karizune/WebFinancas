@@ -9,6 +9,6 @@ namespace Domain.Interfaces.Repository
         LancamentoContabil GetOneByEmpresaLancamento(int empresaID, int lancamentoID);
         List<LancamentoContabil> GetAtivos(int empresaID);
         bool Adicionar(LancamentoContabil lancamento, string usuario);
-        bool Remover(LancamentoContabil lancamento, string usuario)
+        bool Remover(LancamentoContabil lancamento, string usuario);
     }
 }

@@ -9,7 +9,7 @@ namespace Domain.Interfaces.Service
     {
         PlanoContaTipo GetOneByID(int planoContaTipoID);
         List<PlanoContaTipo> GetAtivos();
-        bool Salvar(PlanoContaTipo planoContaTipo);
-        bool Remover(int planoContaTipoID);
+        bool Adicionar(PlanoContaTipo planoContaTipo, string usuario);
+        bool Remover(int planoContaTipoID, string usuario);
     }
 }

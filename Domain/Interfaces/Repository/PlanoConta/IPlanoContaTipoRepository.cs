@@ -9,6 +9,7 @@ namespace Domain.Interfaces.Repository
     {
         PlanoContaTipo GetOneByID(int planoContaTipoID);
         List<PlanoContaTipo> GetAtivos();
-        bool Remover(PlanoContaTipo planoContaTipo);
+        bool Remover(PlanoContaTipo planoContaTipo, string usuario);
+        bool Adicionar(PlanoContaTipo planoContaTipo, string usuario);
     }
 }

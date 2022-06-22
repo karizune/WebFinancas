@@ -1,0 +1,23 @@
+﻿@using Aplicativo_Web_Financeiro.ViewModels
+@model UsuarioViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center" style="align-content:center; align-items:center; margin-top: 5%">
+    <center>
+        <form asp-action="Login" style="width:250px;" autocomplete="off">
+            <input asp-for="UsuarioAcesso" placeholder="Usuário de acesso" class="form-control" />
+            <span asp-validation-for="UsuarioAcesso" class="text-danger"></span><br />
+            <input type="password" asp-for="Senha" placeholder="Senha de acesso" class="form-control" />
+            <span asp-validation-for="Senha" class="text-danger"></span><br>
+            <button type="submit" class="btn btn-outline-success">Entrar</button>
+            @Html.ActionLink("Cadastrar", "Cadastro", "Home", null, new { @class = "btn btn-outline-primary" })
+        </form>
+    </center>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

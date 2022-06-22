@@ -7,7 +7,7 @@ namespace Domain.Interfaces.Service
     {
         Acumulado GetOneBy(int empresaID, int acumuladoID);
         List<Acumulado> GetAtivos(int empresaID);
-        bool Salvar(Acumulado acumulado);
+        bool Adicionar(Acumulado acumulado, string usuario);
         bool Remover(int empresaID, int acumuladoID, string usuario);
     }
 }

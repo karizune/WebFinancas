@@ -40,7 +40,7 @@ namespace Services.Services
             }
         }
 
-        public bool Salvar(Conta conta, string usuario)
+        public bool Adicionar(Conta conta, string usuario)
         {
             return _contaRepository.Adicionar(conta, usuario);
         }

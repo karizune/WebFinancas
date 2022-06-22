@@ -40,9 +40,9 @@ namespace Services.Services
             }
         }
 
-        public bool Salvar(Acumulado acumulado)
+        public bool Adicionar(Acumulado acumulado, string usuario)
         {
-            return _acumuladoRepository.Adicionar(acumulado);
+            return _acumuladoRepository.Adicionar(acumulado, usuario);
         }
     }
 }
